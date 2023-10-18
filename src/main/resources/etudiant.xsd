@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		targetNamespace="http://www.martial.com/etudiant/dto/Etudiant"
+		xmlns:tns="http://www.martial.com/etudiant/dto/Etudiant"
+		elementFormDefault="qualified">
+		
+		<xsd:simpleType name="EmailType">
+			<xsd:restriction base="xsd:string">
+				<xsd:pattern value="[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}"/>				
+			</xsd:restriction>
+		</xsd:simpleType>
+		
+		<xsd:element name="EtudiantDtIn">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="name" type="xsd:string"/>
+					<xsd:element name="age" type="xsd:int"/>
+					<xsd:element name="dateNaissance" type="xsd:date"/>
+					<xsd:element name="mail" type="tns:EmailType"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+		
+		<xsd:element name="ResponseDto">
+			<xsd:complexType>
+				<xsd:sequence>
+					<xsd:element name="status" type="xsd:int"/>
+					<xsd:element name="id" type="xsd:int"/>
+				</xsd:sequence>
+			</xsd:complexType>
+		</xsd:element>
+	
+</xsd:schema>
